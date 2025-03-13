@@ -1,0 +1,76 @@
+<div class="container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="card-title">Connectez-vous </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Mot de passe</mat-label>
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hidePassword = !hidePassword"
+              type="button"
+            >
+              <mat-icon>{{
+                hidePassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+              Password must be at least 6 characters long
+            </mat-error>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            class="full-width"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
+        </form>
+        <!-- Lien mot de passe oublié -->
+        <div class="forgot-password">
+          <a mat-button color="primary" href="#">Mot de passe oublié ? </a>
+        </div>
+      </div>
+      <!-- Lien pour créer un compte -->
+      <div>
+        <span
+          >Vous n'avez pas un compte?
+          <a mat-button color="primary" href="/register"
+            >Créer un compte</a
+          ></span
+        >
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,50 @@
+<app-sidebar>
+  <div class="content">
+    <div class="settings-container">
+      <!-- Greeting Card -->
+      <mat-card class="greeting-card">
+        <div class="greeting-content">
+          <span class="greeting-icon">👋</span>
+          <!-- Hand Wave Emoji -->
+          <div class="greeting-text">
+            <h2>Welcome, Dr. Smith!</h2>
+            <p>Update your profile information below</p>
+          </div>
+        </div>
+      </mat-card>
+
+      <!-- Settings Form -->
+      <mat-card class="settings-form">
+        <mat-card-title>Profile Settings</mat-card-title>
+        <hr />
+        <form class="form">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Enter your email"
+              [(ngModel)]="user.email"
+              name="email"
+              disabled
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Enter your name"
+              [(ngModel)]="user.name"
+              name="name"
+            />
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-raised-button color="primary" (click)="saveProfile()">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</app-sidebar>

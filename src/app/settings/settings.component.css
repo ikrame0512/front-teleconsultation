@@ -1,0 +1,94 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}
+
+.greeting-card {
+  display: flex;
+  /* align-items: center; */
+  gap: 16px;
+  padding: 24px;
+  background: #ffffff;
+  color: #333333;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #3f51b5; /* Subtle left border for design */
+}
+
+.greeting-icon {
+  font-size: 48px;
+  color: #4d63e0; /* Soft blue icon color */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.greeting-text h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.greeting-text p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.settings-form {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+/* 
+button {
+  padding: 8px 16px;
+  background: #3f51b5;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+} */
+
+button:hover {
+  background: #303f9f;
+}
+
+/* Add subtle hover effect to form fields */
+.mat-form-field:hover .mat-form-field-outline {
+  border-color: #3f51b5;
+}
+
+.mat-form-field-label {
+  color: #4d63e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .greeting-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .greeting-icon {
+    margin-bottom: 16px;
+  }
+
+  .form-actions {
+    justify-content: center;
+  }
+}

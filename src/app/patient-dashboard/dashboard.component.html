@@ -1,0 +1,50 @@
+<ng-container *ngIf="userRole === 'PATIENT'">
+  <mat-card class="appointments-table">
+    <mat-card-title>
+      <div class="card-title-action">
+        <p>Mes rendez-vous</p>
+      </div>
+    </mat-card-title>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z4">
+        <!-- Columns -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let appointment">
+            {{ appointment.id }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let appointment">
+            {{ appointment.date }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="patient">
+          <th mat-header-cell *matHeaderCellDef>Patient</th>
+          <td mat-cell *matCellDef="let appointment">
+            {{ appointment.patient }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let appointment">
+            <span class="status" [ngClass]="appointment.status">{{
+              appointment.status | titlecase
+            }}</span>
+          </td>
+        </ng-container>
+
+        <!-- Table Headers & Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-card>
+  <br />
+
+  <app-new-appointment-form></app-new-appointment-form>
+</ng-container>
